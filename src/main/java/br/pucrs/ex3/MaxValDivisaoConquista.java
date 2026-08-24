@@ -19,13 +19,12 @@ package br.pucrs.ex3;
  * A implementação abaixo é exatamente esse algoritmo, apenas com um contador
  * de chamadas recursivas (usado como "número de iterações" nos testes).
  */
+
 public class MaxValDivisaoConquista {
 
     private long chamadas;
 
-    /**
-     * Encontra o maior valor em A[init..end] (inclusive) por divisão e conquista.
-     */
+    // Encontra o maior valor em A[init..end] (inclusive) por divisão e conquista.
     public long maxVal2(long[] a, int init, int end) {
         chamadas++;
         if (end - init <= 1) {
@@ -38,12 +37,12 @@ public class MaxValDivisaoConquista {
         }
     }
 
-    /** Número de chamadas recursivas realizadas na última execução. */
+    // Número de chamadas recursivas realizadas na última execução.
     public long getChamadas() {
         return chamadas;
     }
 
-    /** Zera o contador de chamadas, para poder medir uma nova execução. */
+    // Zera o contador de chamadas, para poder medir uma nova execução.
     public void resetContador() {
         chamadas = 0;
     }

@@ -29,6 +29,7 @@ package br.pucrs.ex4;
  *
  * n deve ser uma potência de 2 (o enunciado usa 4, 16 e 64 bits).
  */
+
 public class MultiplicacaoLongeira {
 
     private long chamadas;
@@ -56,12 +57,12 @@ public class MultiplicacaoLongeira {
         return (e << (2 * m)) + ((g + h) << m) + f;
     }
 
-    /** Número de chamadas recursivas realizadas na última execução. */
+    // Número de chamadas recursivas realizadas na última execução.
     public long getChamadas() {
         return chamadas;
     }
 
-    /** Zera o contador de chamadas, para poder medir uma nova execução. */
+    // Zera o contador de chamadas, para poder medir uma nova execução.
     public void resetContador() {
         chamadas = 0;
     }
