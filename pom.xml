@@ -22,18 +22,15 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.4.0</version>
+      <version>5.10.2</version>
       <scope>test</scope>
     </dependency>
-    
     <dependency>
-      <groupId>br.pucrs</groupId>
-      <artifactId>util</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/../../../MavenRep/utiltimecounter.jar</systemPath>
-   </dependency>
-    
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.10.2</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
