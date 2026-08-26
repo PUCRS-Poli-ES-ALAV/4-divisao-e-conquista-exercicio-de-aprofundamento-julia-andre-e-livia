@@ -30,7 +30,7 @@ package br.pucrs.ex4;
  * n deve ser uma potência de 2 (o enunciado usa 4, 16 e 64 bits).
  */
 
-public class MultiplicacaoLongeira {
+public class MultiplicacaoLong {
 
     private long chamadas;
 

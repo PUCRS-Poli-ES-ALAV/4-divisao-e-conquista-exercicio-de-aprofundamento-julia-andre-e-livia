@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class MultiplicacaoLongeiraTest {
 
-    private final MultiplicacaoLongeira algoritmo = new MultiplicacaoLongeira();
+    private final MultiplicacaoLong algoritmo = new MultiplicacaoLong();
 
     @Test
     void deveMultiplicarComUmBit() {

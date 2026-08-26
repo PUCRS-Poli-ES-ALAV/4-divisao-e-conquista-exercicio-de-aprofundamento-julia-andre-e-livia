@@ -1,7 +1,5 @@
 package br.pucrs.ex4;
 
-import java.util.Random;
-
 /**
  * Executa o mult (divisão e conquista) para os 3 casos pedidos no enunciado:
  * valores de 4 bits, 16 bits e 64 bits. Contabiliza o número de chamadas
@@ -24,28 +22,48 @@ public class Ex4 {
                 "n bits", "x", "y", "Chamadas", "Tempo (ms)");
 
         // Caso 1: 4 bits (valores de 0 a 15)
-        rodarCaso(4, 13, 6);
+        rodarCasoNumerico(4, 13, 6);
 
         // Caso 2: 16 bits (valores de 0 a 65.535)
-        rodarCaso(16, 47321, 12890);
+        rodarCasoNumerico(16, 47321, 12890);
 
         // Caso 3: 64 bits (valores positivos representáveis em long)
-        Random random = new Random(42);
-        long x64 = Math.abs(random.nextLong());
-        long y64 = Math.abs(random.nextLong());
-        rodarCaso(64, x64, y64);
+        rodarCasoNumerico(64,  3000000000L, 2000000000L);
+
+        // Caso 4: 4 bits (valores de 0 a 15)
+        rodarCasoString(4, "1101", "0110");
+
+        // Caso 5: 16 bits (valores de 0 a 65.535)
+        rodarCasoString(16, "1011100011011001", "0011001001011010");
+
+        // Caso 6: 64 bits
+        rodarCasoString(64, "0000000000000000000000000000000101100101101000001011110000000000", "0000000000000000000000000000000001110111001101011001010000000000");
     }
 
-    private static void rodarCaso(long n, long x, long y) {
-        MultiplicacaoLongeira algoritmo = new MultiplicacaoLongeira();
+    private static void rodarCasoNumerico(long n, long x, long y) {
+        MultiplicacaoLong algoritmo = new MultiplicacaoLong();
 
         long inicio = System.nanoTime();
         long resultado = algoritmo.mult(x, y, n);
         long fim = System.nanoTime();
 
-        double tempoMs = (fim - inicio) / 1_000_000.0;
+        double tempoMs = (fim - inicio) / 1000000.0;
 
         System.out.printf("%-10d %-25d %-25d %-12d %-15.4f -> x*y = %d (esperado: %d)%n",
                 n, x, y, algoritmo.getChamadas(), tempoMs, resultado, x * y);
+    }
+
+    private static void rodarCasoString(long n, String x, String y) {
+        MultiplicacaoString algoritmo = new MultiplicacaoString();
+
+        long inicio = System.nanoTime();
+        long resultado = algoritmo.mult(x, y, n);
+        long fim = System.nanoTime();
+
+        double tempoMs = (fim - inicio) / 1000000.0;
+
+        System.out.printf("%-10d %-25s %-25s %-12d %-15.4f -> x*y = %d (esperado: %d)%n",
+                n, x, y, algoritmo.getChamadas(), tempoMs, resultado, Long.parseLong(x, 2) * Long.parseLong(y, 2));
+
     }
 }
